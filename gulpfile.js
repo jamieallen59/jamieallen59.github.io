@@ -1,16 +1,19 @@
 var gulp = require('gulp')
 
 // Server variables
-var serve = require('gulp-serve')
+var webserver = require('gulp-webserver');
 
 // LESS variables
 var less = require('gulp-less')
 var minifyCSS = require('gulp-minify-css')
 
-gulp.task('serve', serve({
-  root: 'public',
-  port: 4433
-}))
+gulp.task('serve', function() {
+  gulp.src('./public')
+    .pipe(webserver({
+      livereload: true,
+      open: true
+    }));
+});
 
 gulp.task('less', function() {
   return gulp.src('./public/css/**/*.less')
