@@ -1,20 +1,17 @@
 import 'babel-polyfill'
 import gulp from 'gulp'
 
-// Server variables
-import webserver from 'gulp-webserver'
-
-// LESS variables
-import less from 'gulp-less'
-import minifyCSS from 'gulp-minify-css'
 
 import gulpSequence from 'gulp-sequence'
 
-gulp.task('default', gulpSequence('less', 'js', 'serve'));
+gulp.task('default', gulpSequence('html', 'less', 'js', 'serve'));
+
+// Server variables
+import webserver from 'gulp-webserver'
 
 // Server
 gulp.task('serve', () => {
-  gulp.src('./public')
+  gulp.src('build')
     .pipe(webserver({
       livereload: true,
       open: true
@@ -22,11 +19,21 @@ gulp.task('serve', () => {
 });
 
 // Less
+gulp.task('html', () => {
+  return gulp.src('./public/index.html')
+    .pipe(gulp.dest('build'))
+})
+
+// LESS variables
+import less from 'gulp-less'
+import minifyCSS from 'gulp-minify-css'
+
+// Less
 gulp.task('less', () => {
-  return gulp.src('./public/css/**/*.less')
+  return gulp.src('./public/less/**/*.less')
     .pipe(less())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./public/css'))
+    .pipe(gulp.dest('build'))
 })
 
 // Javascript, es2015 and React

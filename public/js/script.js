@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
-let Tabs = React.createClass({
-  render: () => {
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Tabs = React.createClass({
+  render() {
     return (
       <div>YES</div>
-    )
+    );
   }
 })
 
