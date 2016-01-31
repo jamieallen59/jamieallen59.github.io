@@ -4,7 +4,7 @@ import gulp from 'gulp'
 
 import gulpSequence from 'gulp-sequence'
 
-gulp.task('default', gulpSequence('html', 'less', 'js', 'serve'));
+gulp.task('default', gulpSequence('images', 'html', 'less', 'js', 'serve'));
 
 // Server variables
 import webserver from 'gulp-webserver'
@@ -18,13 +18,23 @@ gulp.task('serve', () => {
     }));
 });
 
-// Less
+// Image processing tools
+import imagemin from 'gulp-imagemin'
+
+// Image processing
+gulp.task('images', () => {
+  return gulp.src('./public/images/*.jpg')
+    .pipe(imagemin({ progressive: true }))
+    .pipe(gulp.dest('build/images'))
+})
+
+// Html
 gulp.task('html', () => {
   return gulp.src('./public/index.html')
     .pipe(gulp.dest('build'))
 })
 
-// LESS variables
+// LESS tools
 import less from 'gulp-less'
 import minifyCSS from 'gulp-minify-css'
 
