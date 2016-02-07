@@ -14,7 +14,7 @@ gulp.task('serve', () => {
   gulp.src('build')
     .pipe(webserver({
       livereload: true,
-      open: true
+      open: false
     }));
 });
 

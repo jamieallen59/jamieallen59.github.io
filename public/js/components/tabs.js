@@ -9,6 +9,7 @@ class Tabs extends Component {
 
   handleClick(index, event) {
     event.preventDefault();
+
     this.setState({
       selected: index
     })
@@ -22,7 +23,7 @@ class Tabs extends Component {
         <li key={index}>
           <a href='#'
              className={activeClass}
-             onClick={ this.handleClick.bind(this,index) }>
+             onClick={ this.handleClick.bind(this, index) }>
             { child.props.label }
           </a>
         </li>
