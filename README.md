@@ -2,7 +2,9 @@ Personal website
 =================
 
 Built using:
+  - React
+  - JavaScript es6
   - Gulp
-  - es6
+  - LESS
 
-Link to website: 
+Link to website: http://jamieallen59.github.io
