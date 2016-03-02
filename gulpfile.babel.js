@@ -1,20 +1,23 @@
 import 'babel-polyfill'
 import gulp from 'gulp'
 
+gulp.task('default', ['watch']);
 
-import gulpSequence from 'gulp-sequence'
-
-gulp.task('default', gulpSequence('images', 'html', 'less', 'js', 'serve'));
+// Watcher
+gulp.task('watch', ['images', 'html', 'less', 'js', 'serve'], () => {
+    gulp.watch('public/index.html', ['html']);
+    gulp.watch('public/less/**/*.less', ['less']);
+    gulp.watch('public/js/**/*.js', ['js']);
+});
 
 // Server variables
 import webserver from 'gulp-webserver'
 
 // Server
 gulp.task('serve', () => {
-  gulp.src('build')
+    gulp.src('build')
     .pipe(webserver({
-      livereload: true,
-      open: false
+        open: false
     }));
 });
 
@@ -37,11 +40,13 @@ gulp.task('html', () => {
 // LESS tools
 import less from 'gulp-less'
 import minifyCSS from 'gulp-minify-css'
+import concat from 'gulp-concat'
 
 // Less
 gulp.task('less', () => {
-  return gulp.src('./public/less/**/*.less')
-    .pipe(less())
+    return gulp.src('./public/less/**/*.less')
+    .pipe(less({compress: true}))
+    .pipe(concat('index.css'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('build'))
 })

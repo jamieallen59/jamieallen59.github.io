@@ -31,11 +31,13 @@
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-less": "^3.0.5",
     "gulp-minify-css": "^1.2.3",
     "gulp-sequence": "^0.4.4",
     "gulp-webserver": "^0.9.1",
+    "path": "^0.12.7",
     "vinyl-source-stream": "^1.1.0"
   }
 }
