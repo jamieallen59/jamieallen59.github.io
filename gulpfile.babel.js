@@ -15,7 +15,7 @@ import webserver from 'gulp-webserver'
 
 // Server
 gulp.task('serve', () => {
-    gulp.src('build')
+    gulp.src('./')
     .pipe(webserver({
         open: false
     }));
@@ -28,13 +28,13 @@ import imagemin from 'gulp-imagemin'
 gulp.task('images', () => {
   return gulp.src('./public/images/*.jpg')
     .pipe(imagemin({ progressive: true }))
-    .pipe(gulp.dest('build/images'))
+    .pipe(gulp.dest('dist/images'))
 })
 
 // Html
 gulp.task('html', () => {
   return gulp.src('./public/index.html')
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('./'))
 })
 
 // LESS tools
@@ -46,9 +46,9 @@ import concat from 'gulp-concat'
 gulp.task('less', () => {
     return gulp.src('./public/less/**/*.less')
     .pipe(less({compress: true}))
-    .pipe(concat('index.css'))
+    .pipe(concat('styles.css'))
     .pipe(minifyCSS())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('./dist'))
 })
 
 // Javascript, es2015 and React
@@ -66,5 +66,5 @@ gulp.task('js', () => {
       })
       .pipe(source('main.js'))
       // .pipe(fs.createWriteStream("bundle.js"));
-      .pipe(gulp.dest('./build/'))
+      .pipe(gulp.dest('./dist'))
 })
