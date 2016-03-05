@@ -41,11 +41,13 @@ gulp.task('html', () => {
 import less from 'gulp-less'
 import minifyCSS from 'gulp-minify-css'
 import concat from 'gulp-concat'
+import autoprefixer from 'gulp-autoprefixer'
 
 // Less
 gulp.task('less', () => {
     return gulp.src('./public/less/**/*.less')
     .pipe(less({compress: true}))
+    .pipe(autoprefixer())
     .pipe(concat('styles.css'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./dist'))
