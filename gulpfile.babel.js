@@ -57,6 +57,8 @@ gulp.task('less', () => {
 import browserify from 'browserify'
 import babelify from 'babelify'
 import source from 'vinyl-source-stream'
+import uglify from 'gulp-uglify'
+import streamify from 'gulp-streamify'
 
 gulp.task('js', () => {
    browserify({ debug: true })
@@ -67,6 +69,7 @@ gulp.task('js', () => {
         console.log("Error: " + err.message);
       })
       .pipe(source('main.js'))
+      .pipe(streamify(uglify()))
       // .pipe(fs.createWriteStream("bundle.js"));
       .pipe(gulp.dest('./dist'))
 })
