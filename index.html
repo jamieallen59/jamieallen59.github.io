@@ -1,85 +1,98 @@
 <!DOCTYPE html>
 <html>
-
     <head>
-        <title>JA</title>
+        <title>Jamie A</title>
         <meta charset="utf-8">
         <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Jamie Allen">
         <style>
-            body {font-family: 'Source Sans Pro', sans-serif;font-size: 18px;letter-spacing: 0.2px;-webkit-font-smoothing: antialiased;background-color: #171717;color: #fff;font-weight: 300;max-width: 1080px;margin: 0 auto;}
-            a {color: #fff;text-decoration: none;}
+            @font-face {
+                font-family: 'Source Sans Pro';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMw1o1eFRj7wYC6JbISqOjY.ttf) format('truetype')
+            }
+                @font-face {
+                font-family: 'Source Sans Pro';
+                font-style: normal;
+                font-weight: 400;
+                src: local('Source Sans Pro'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNzbP97U9sKh0jjxbPbfOKg.ttf) format('truetype')
+            }
         </style>
-        <link rel="stylesheet" type="text/css" href="dist/styles.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/dist/styles.css" media="screen">
     </head>
+    <!--
+        __      _____________.____   _________  ________      _____  ___________
+    /  \    /  \_   _____/|    |  \_   ___ \ \_____  \    /     \ \_   _____/
+    \   \/\/   /|    __)_ |    |  /    \  \/  /   |   \  /  \ /  \ |    __)_
+     \        / |        \|    |__\     \____/    |    \/    Y    \|        \
+      \__/\  / /_______  /|_______ \______  /\_______  /\____|__  /_______  /
+        \/          \/         \/      \/         \/         \/        \/
 
-    <body>
-        <div class="main">
-            <header class="summary-content__wrapper">
-                <div class="image__container">
-                    <img class="profile-image" src="dist/images/me.jpg"/>
+        This site is built in standard html and css, with a React component for the portfolio section.
+        The site is fully responsive and is also optimised to run pretty fast. It should be snappy
+        even on slow connections and on mobile. Enjoy.
+    -->
+    <body class="main">
+        <header class="summary-content__wrapper">
+            <div class="image__container">
+                <div class="profile-image"></div>
+            </div>
+            <div class="summary-text__container">
+                <div class="name">
+                    Jamie Allen
                 </div>
-                <div class="summary-text__container">
-                    <div class="name">
-                        Jamie Allen
-                    </div>
 
-                    <div class="company">
-                        Currently working as front-end engineer at
-                        <span>
-                            <a class="company-link" href="https://home.justgiving.com/">JustGiving</a>.
-                        </span>
-                    </div>
-
-                    <div class="job-description">
-                        <div>Technologies: JavaScript es6, Angular, React, JQuery, HTML5 and LESS.</div>
-                        <div>Workflow: Git, Gulp, Bower and npm.</div>
-                    </div>
+                <div class="company">
+                    Currently working as front-end engineer at
+                    <span>
+                        <a class="company-link" href="https://home.justgiving.com/">JustGiving</a>.
+                    </span>
                 </div>
-            </header>
+
+                <div class="job-description">
+                    <div>Technologies: JavaScript ES6, Angular, React, JQuery, HTML5 and LESS.</div>
+                    <div>Workflow: Git, Gulp, Bower and npm.</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="divide"></div>
+
+        <div id="portfolio"></div>
+
+        <div class="divide"></div>
+
+        <footer>
+            <div class="contact-links__container">
+                <a class="link" href="mailto: jamieallen59@gmail.com">
+                    <i class="fa fa-envelope fa-lg"></i>
+                    <div>Gmail</div>
+                </a>
+                <a class="link" href="https://uk.linkedin.com/in/jamie-allen-5779bb49">
+                    <i class="fa fa-linkedin fa-lg"></i>
+                    <div>LinkedIn</div>
+                </a>
+                <a class="link" href="https://github.com/jamieallen59">
+                    <i class="fa fa-github fa-lg"></i>
+                    <div>Github</div>
+                </a>
+                <a class="link" href="https://codepen.io/jamieallen59/">
+                    <i class="fa fa-codepen fa-lg"></i>
+                    <div>CodePen</div>
+                </a>
+            </div>
 
             <div class="divide"></div>
 
-            <div id="portfolio"></div>
-
-            <div class="divide"></div>
-
-            <footer>
-                <div class="contact-links__container">
-                    <a class="link" href="mailto: jamieallen59@gmail.com">
-                        <i class="fa fa-envelope fa-lg"></i>
-                        <div>Gmail</div>
-                    </a>
-                    <a class="link" href="https://uk.linkedin.com/in/jamie-allen-5779bb49">
-                        <i class="fa fa-linkedin fa-lg"></i>
-                        <div>LinkedIn</div>
-                    </a>
-                    <a class="link" href="https://github.com/jamieallen59">
-                        <i class="fa fa-github fa-lg"></i>
-                        <div>Github</div>
-                    </a>
-                    <a class="link" href="https://codepen.io/jamieallen59/">
-                        <i class="fa fa-codepen fa-lg"></i>
-                        <div>CodePen</div>
-                    </a>
-                </div>
-
-                <div class="divide"></div>
-
-                <div class="copyright">© 2016 Jamie Allen</div>
-            </footer>
-        </div>
-
-        <script>
-            var cb = function() {
-                var l = document.createElement('link'); l.rel = 'stylesheet';
-                    l.href = 'dist/styles.css';
-                var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-            };
-            var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-             webkitRequestAnimationFrame || msRequestAnimationFrame;
-            if (raf) raf(cb);
-            else window.addEventListener('load', cb);
-        </script>
+            <div class="copyright">© 2016 Jamie Allen</div>
+            <div class="attribution">
+                The content of this page is licensed under the Creative
+                Commons Attribution 3.0 License, and code samples are
+                licensed under the Apache 2.0 License.
+            </div>
+        </footer>
         <script async src="dist/main.js"></script>
         <script async src="https://use.fonticons.com/11ff021f.js"></script>
         <script>
