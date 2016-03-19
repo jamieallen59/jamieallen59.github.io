@@ -69,7 +69,7 @@ gulp.task('js', () => {
         console.log("Error: " + err.message);
       })
       .pipe(source('main.js'))
-      .pipe(streamify(uglify()))
+    //   .pipe(streamify(uglify()))
       // .pipe(fs.createWriteStream("bundle.js"));
       .pipe(gulp.dest('./dist'))
 })
