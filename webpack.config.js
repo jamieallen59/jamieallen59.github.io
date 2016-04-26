@@ -7,7 +7,7 @@ var ExtractTextPluginConfig = new ExtractTextPlugin("dist/styles.css");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     title: 'Jamie Allen',
-    template: path.join(__dirname + '/public/index.html'),
+    template: path.join(__dirname + '/index.html'),
     filename: 'index.html',
     inject: 'body'
 })
@@ -16,7 +16,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
     {
         from: './public/images/me.jpg',
-        to: './dist/images'
+        to: 'dist/images'
     }
 ], {
     copyUnmodified: true
@@ -31,13 +31,12 @@ var ProdMinifyConfig = new webpack.optimize.UglifyJsPlugin({
     }
 })
 
-
 module.exports = {
     entry: [
         './public/js/app.js'
     ],
     output: {
-        path: path.join(__dirname + '/dist'),
+        path: './',
         filename: 'index_bundle.js'
     },
     devServer: {
