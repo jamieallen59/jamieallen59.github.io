@@ -1,0 +1,112 @@
+// Inlined
+// .summary-content__wrapper {
+//     display: flex;
+//     align-items: center;
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-top: 80px;
+//     margin-bottom: 60px;
+//     width: 600px;
+// }
+// .summary-text__container {
+//     padding-bottom: 8px;
+//     font-weight: 400;
+// }
+// .image__container {
+//     margin-right: 30px;
+// }
+.profile-image {
+    // background-image: url('../images/me.jpg');
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // background-position: center;
+    // margin: 0 auto;
+    // width: 150px;
+    // height: 150px;
+    // border-radius: 50%;
+}
+// .name{
+//     padding-bottom: 8px;
+// }
+// .company {
+//     padding-bottom: 8px;
+// }
+// .company-link {
+//     color: #fff;
+//     text-decoration: none;
+// }
+// .job-description {
+//     padding-bottom: 8px;
+// }
+// .divide {
+//     width: 90%;
+//     margin: 0 auto;
+//     border-bottom: 1px solid #232323;
+// }
+.summary-content__wrapper {
+    justify-content: center;
+}
+.contact-links__container {
+    text-align: center;
+    margin: 40px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+
+    .link {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        margin: 0 20px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+        .fa {
+            margin-bottom: 8px;
+        }
+    }
+    .show-link {
+        opacity: 1;
+    }
+}
+
+.copyright {
+    text-align: center;
+    padding: 40px;
+}
+.attribution {
+    font-size: 14px;
+    padding: 0 20px 40px;
+    max-width: 515px;
+    margin: 0 auto;
+}
+// Inlined
+// @media (max-width: 780px) {
+//     .summary-content__wrapper {
+//         display: block;
+//         width: initial;
+//         margin: 80px auto 32px;
+//
+//         .summary-text__container {
+//             padding: 8px 40px 0 40px;
+//         }
+//         .image__container {
+//             margin-bottom: 8px;
+//             text-align: center;
+//         }
+//     }
+// }
+
+@media (max-width: 420px) {
+    .contact-links__container {
+        margin: 28px;
+        padding: 0;
+
+        .link {
+            margin: 0 10px;
+        }
+    }
+    .attribution {
+        font-size: 14px;
+    }
+}
