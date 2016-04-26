@@ -1,6 +1,8 @@
+var path = require('path');
+var webpack = require('webpack');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var ExtractTextPluginConfig = new ExtractTextPlugin("dist/styles.css");
-var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -20,10 +22,19 @@ var CopyWebpackPluginConfig = new CopyWebpackPlugin([
     copyUnmodified: true
 });
 
+var ProdEnvPluginConfig = new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+})
+var ProdMinifyConfig = new webpack.optimize.UglifyJsPlugin({
+    compress: {
+        warnings: false
+    }
+})
+
 
 module.exports = {
     entry: [
-        './public/js/script.js'
+        './public/js/app.js'
     ],
     output: {
         path: path.join(__dirname + '/dist'),
@@ -45,6 +56,9 @@ module.exports = {
     plugins: [
         HtmlWebpackPluginConfig,
         ExtractTextPluginConfig,
-        CopyWebpackPluginConfig
+        CopyWebpackPluginConfig,
+        // These are only for production
+        ProdEnvPluginConfig,
+        ProdMinifyConfig
     ]
 }

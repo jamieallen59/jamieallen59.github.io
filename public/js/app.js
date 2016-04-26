@@ -1,9 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react'
+import ReactDOM, { render } from 'react-dom'
 
-import labelAnimation from '../components/animations/label.js';
-// import ProjectsContainer from './ProjectsContainer.js';
-import Label from '../components/Label.js';
-import Project from '../components/Project.js';
+import data from './data.json'
+import scrollAnimation from './components/animations/scrollHandler.js'
+import labelAnimation from './components/animations/label.js';
+import Label from './components/Label.js';
+import Project from './components/Project.js';
+
+require('../less/index.less');
 
 class PortfolioContainer extends Component {
     constructor(props) {
@@ -29,7 +33,7 @@ class PortfolioContainer extends Component {
         return (
             <div>
                 <div className='tabs__labels'>
-                    { this.props.work.map((result, index) => {
+                    { this.props.projectData.map((result, index) => {
                         const activeClass = (this.state.selected === index
                             ? 'label__link active'
                             : 'label__link');
@@ -39,12 +43,12 @@ class PortfolioContainer extends Component {
                                 key={ index }
                                 activeClass={ activeClass }
                                 onSelectLabel={ this.handleClick.bind(this, index) }
-                                workTitle={ this.props.work[index].label } />
+                                workTitle={ this.props.projectData[index].label } />
                         )
                     })}
                 </div>
                 <div>
-                    { this.props.work.map((result, index) => {
+                    { this.props.projectData.map((result, index) => {
                         return (
                             <Project
                                 key={ index }
@@ -59,10 +63,10 @@ class PortfolioContainer extends Component {
     }
 }
 
-PortfolioContainer.defaultProps = { selected: 0 }
+PortfolioContainer.defaultProps = {
+    selected: 0,
+    projectData: data.work,
+    isLoading: true
+ }
 
-PortfolioContainer.propTypes = {
-    work: PropTypes.array.isRequired
-}
-
-export default PortfolioContainer;
+render(<PortfolioContainer />, document.getElementById('portfolio'));

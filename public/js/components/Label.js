@@ -13,9 +13,9 @@ const Label = (props) => {
 }
 
 Label.propTypes = {
-    activeClass: React.PropTypes.string.isRequired,
-    onSelectLabel: React.PropTypes.func.isRequired,
-    workTitle: React.PropTypes.string.isRequired,
+    activeClass: PropTypes.string.isRequired,
+    onSelectLabel: PropTypes.func.isRequired,
+    workTitle: PropTypes.string.isRequired,
 }
 
 export default Label;
