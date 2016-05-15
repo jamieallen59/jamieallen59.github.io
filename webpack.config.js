@@ -1,37 +1,35 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var ExtractTextPluginConfig = new ExtractTextPlugin("dist/styles.css");
+const isProduction = process.env.NODE_ENV === 'production';
 
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+const ExtractTextPluginConfig = new ExtractTextPlugin("dist/styles.css");
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     title: 'Jamie Allen',
-    template: path.join(__dirname + '/index.html'),
+    hash: true,
+    template: path.join(__dirname + '/public/index.html'),
     filename: 'index.html',
     inject: 'body'
 })
-
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var CopyWebpackPluginConfig = new CopyWebpackPlugin([
-    {
-        from: './public/images/me.jpg',
-        to: 'dist/images'
-    }
-], {
+const CopyWebpackPluginConfig = new CopyWebpackPlugin([{
+    from: './public/images/me.jpg',
+    to: './dist/images'
+}], {
     copyUnmodified: true
 });
-
-var ProdEnvPluginConfig = new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production')
-})
-var ProdMinifyConfig = new webpack.optimize.UglifyJsPlugin({
+// const ProdEnvPluginConfig = new webpack.DefinePlugin({
+//     'process.env.NODE_ENV': JSON.stringify('production')
+// })
+const ProdMinifyConfig = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false
     }
 })
 
-module.exports = {
+const config = {
     entry: [
         './public/js/app.js'
     ],
@@ -42,22 +40,39 @@ module.exports = {
     devServer: {
         // This is required for webpack-dev-server. The path should
         // be an absolute path to your build destination.
-        outputPath: path.join(__dirname + '/dist')
+        outputPath: path.join(__dirname + '/'),
+        stats: {
+            chunks: false
+        }
     },
     devtool: 'source-map',
     module: {
-        loaders: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-            {test: /\.(css|less)$/, exclude: [ /public(\\|\/)js/ ], loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!less?sourceMap")},
-            {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'} // inline base64 URLs for <=8k images, direct URLs for the rest
-        ]
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loaders: ['babel-loader']
+        }, {
+            test: /\.(css|less)$/,
+            exclude: [ /public(\\|\/)js/ ],
+            loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!less?sourceMap")
+        }, {
+            test: /\.(css|less)$/,
+            include: [ /public(\\|\/)js/ ],
+            loader: ExtractTextPlugin.extract('style-loader', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less?outputStyle=expanded&sourceMap')
+        }, {
+            test: /\.(png|jpg)$/,
+            loaders: ['url-loader?limit=8192']
+        }] // inline base64 URLs for <=8k images, direct URLs for the rest
     },
     plugins: [
-        HtmlWebpackPluginConfig,
         ExtractTextPluginConfig,
-        CopyWebpackPluginConfig,
-        // These are only for production
-        ProdEnvPluginConfig,
-        ProdMinifyConfig
+        HtmlWebpackPluginConfig,
+        CopyWebpackPluginConfig
     ]
 }
+
+if (isProduction) {
+  config.plugins.push(ProdMinifyConfig)
+}
+
+module.exports = config;

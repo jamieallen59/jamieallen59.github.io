@@ -1,0 +1,3 @@
+- images all being produced twice
+- Introduce CSS modules
+- move webpack plugins to a different file
