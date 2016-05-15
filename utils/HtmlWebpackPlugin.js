@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     title: 'Jamie Allen',
     hash: true,

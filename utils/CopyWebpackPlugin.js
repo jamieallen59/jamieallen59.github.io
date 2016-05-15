@@ -1,4 +1,5 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 const CopyWebpackPluginConfig = new CopyWebpackPlugin([{
     from: './public/images/me.jpg',
     to: './dist/images'

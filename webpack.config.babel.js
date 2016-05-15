@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPluginConfig = require('./utils/HtmlWebpackPlugin');
-const CopyWebpackPluginConfig = require('./utils/CopyWebpackPlugin');
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from "extract-text-webpack-plugin";
+import HtmlWebpackPluginConfig from './utils/HtmlWebpackPlugin';
+import CopyWebpackPluginConfig from './utils/CopyWebpackPlugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
