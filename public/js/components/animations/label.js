@@ -1,16 +1,14 @@
-'use strict'
+// Animation for the labels on load.
 
-export default function() {
-    const labelsCollection = document.getElementsByClassName('label')
-    const labels = [].slice.call(labelsCollection)
+export default () => {
+	const labelsCollection = document.getElementsByClassName('label')
+	const labels = [].slice.call(labelsCollection)
 
-    let staggeredAdding = (e, i) => {
-        setTimeout(function() {
-            e.className += ' show-label'
-        }, i * 300)
-    }
+	const staggeredAdding = (e, i) => {
+		setTimeout(() => {
+			e.className += ' show-label' // eslint-disable-line no-param-reassign
+		}, i * 300)
+	}
 
-    labels.map((result, index) => {
-        staggeredAdding(result, index)
-    })
+	labels.map((result, index) => staggeredAdding(result, index))
 }

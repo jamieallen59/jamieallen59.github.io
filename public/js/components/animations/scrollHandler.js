@@ -1,21 +1,19 @@
-'use strict'
-
 import animateIcons from './icons.js'
 
-let lastScrollPosition = 0;
-let ticking = false;
+let lastScrollPosition = 0
+let ticking = false
 
-window.addEventListener('scroll', function(e){
+window.addEventListener('scroll', () => {
 	lastScrollPosition = window.scrollY
 
 	if (!ticking) {
-		window.requestAnimationFrame(function() {
+		window.requestAnimationFrame(() => {
 			if (lastScrollPosition > 600) {
 				animateIcons()
 				window.removeEventListener('scroll', false)
 			}
-			ticking = false;
-		});
+			ticking = false
+		})
 	}
-	ticking = true;
+	ticking = true
 })

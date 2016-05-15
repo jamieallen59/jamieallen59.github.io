@@ -1,86 +1,92 @@
-import React, { Component } from 'react';
-import ReactDOM, { render } from 'react-dom';
+import React, { Component, PropTypes } from 'react'
+import { render } from 'react-dom'
 
-import data from './data.json';
-import scrollAnimation from './components/animations/scrollHandler';
-import labelAnimation from './components/animations/label';
+import data from './data.json'
+import './components/animations/scrollHandler'
+import labelAnimation from './components/animations/label'
 // import LabelsContainer from './containers/LabelsContainer';
-import Label from './components/Label.js';
-import Project from './components/Project';
+import Label from './components/Label.js'
+import Project from './components/Project'
 
-require('../less/index.less');
+require('../less/index.less')
 
 class PortfolioContainer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            selected: this.props.selected
-        }
-    }
+	constructor(props) {
+		super(props)
+		this.state = {
+			selected: this.props.selected
+		}
+	}
 
-    handleClick(index, event) {
-        event.preventDefault();
+	componentDidMount() {
+		labelAnimation()
+	}
 
-        this.setState({
-            selected: index
-        })
-    }
+	handleClick(index, event) {
+		event.preventDefault()
 
-    componentDidMount() {
-        labelAnimation();
-    }
+		this.setState({
+			selected: index
+		})
+	}
 
-    _renderLabels() {
-        return this.props.projectData.map((result, index) => {
-            const activeClass = this.state.selected === index ? 'label__link active' : 'label__link';
+	renderLabels() {
+		return this.props.projectData.map((result, index) => {
+			const activeClass = this.state.selected === index
+				? 'label__link active'
+				: 'label__link'
 
-            return (
-                <Label
-                    key={ index }
-                    activeClass={ activeClass }
-                    onSelectLabel={ this.handleClick.bind(this, index) }
-                    workTitle={ this.props.projectData[index].label } />
-            )
-        })
-    }
+			return (
+				<Label
+					key={ index }
+					activeClass={ activeClass }
+					onSelectLabel={ this.handleClick.bind(this, index) }
+					workTitle={ this.props.projectData[index].label } />
+			)
+		})
+	}
 
-    _renderProjects() {
-        return this.props.projectData.map((result, index) => {
-            return (
-                <Project
-                    key={ index }
-                    selected={ this.state.selected }
-                    index={ index }
-                    projectData={ result } />
-            )
-        })
-    }
+	renderProjects() {
+		return this.props.projectData.map((result, index) => {
+			return (
+				<Project
+					key={ index }
+					selected={ this.state.selected }
+					index={ index }
+					projectData={ result } />
+			)
+		})
+	}
 
-    render() {
-        return (
-            <div>
-                <div className='tabs__labels'>
-                    { this._renderLabels() }
-                </div>
-                <div>
-                    { this._renderProjects() }
-                </div>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div>
+				<div className='tabs__labels'>
+					{ this.renderLabels() }
+				</div>
+				<div>
+					{ this.renderProjects() }
+				</div>
+			</div>
+		)
+	}
 }
 //
 // <LabelsContainer
-//     onSelectLabel={ this.handleClick.bind(this, index) }
-//     projectData={ this.props.projectData }
-//     selected={ this.state.selected }/>
+//	 onSelectLabel={ this.handleClick.bind(this, index) }
+//	 projectData={ this.props.projectData }
+//	 selected={ this.state.selected }/>
 //
 
-
 PortfolioContainer.defaultProps = {
-    selected: 0,
-    projectData: data.work,
-    isLoading: true
- }
+	selected: 0,
+	projectData: data.work,
+	isLoading: true
+}
 
-render(<PortfolioContainer />, document.getElementById('portfolio'));
+PortfolioContainer.propTypes = {
+	selected: PropTypes.number.isRequired,
+	projectData: PropTypes.array.isRequired
+}
+
+render(<PortfolioContainer />, document.getElementById('portfolio'))

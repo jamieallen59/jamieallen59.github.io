@@ -1,16 +1,14 @@
-'use strict'
+// Animation for the icons near the footer.
 
-export default function() {
-    const iconsCollection = document.getElementsByClassName('link')
-    const icons = [].slice.call(iconsCollection)
+export default () => {
+	const iconsCollection = document.getElementsByClassName('link')
+	const icons = [].slice.call(iconsCollection)
 
-    let staggeredAdding = (e, i) => {
-        setTimeout(function() {
-            e.className += ' show-link'
-        }, i * 200)
-    }
+	const staggeredAdding = (e, i) => {
+		setTimeout(() => {
+			e.className += ' show-link' // eslint-disable-line no-param-reassign
+		}, i * 200)
+	}
 
-    icons.map((result, index) => {
-        staggeredAdding(result, index)
-    })
+	icons.map((result, index) => staggeredAdding(result, index))
 }

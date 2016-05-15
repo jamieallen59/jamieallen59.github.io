@@ -25,6 +25,11 @@ const config = {
     },
     devtool: 'source-map',
     module: {
+        preLoaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loaders: ['eslint-loader']
+        }],
         loaders: [{
             test: /\.js$/,
             exclude: /node_modules/,
@@ -45,8 +50,8 @@ const config = {
     plugins: [
         new ExtractTextPlugin("dist/styles.css"),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify(env)
-        })
+            'process.env.NODE_ENV': JSON.stringify(env)
+        }),
         HtmlWebpackPluginConfig,
         CopyWebpackPluginConfig
     ]

@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "indent": [ "error", "tab", { "SwitchCase": 1 } ],
+    "semi": [2, "never"],
+    "global-require": "error",
+    "comma-dangle": [ 2, "never" ],
+    "array-bracket-spacing": [ 2, "always" ],
+    "arrow-body-style": 0,
+    "react/jsx-indent": [ 2, "tab" ],
+    "react/jsx-curly-spacing": 0,
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-indent-props": [ 2, "tab" ],
+    "react/jsx-first-prop-new-line": 0
+    }
+}
