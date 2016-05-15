@@ -1,33 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPluginConfig = require('./utils/HtmlWebpackPlugin');
+const CopyWebpackPluginConfig = require('./utils/CopyWebpackPlugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
-
-const ExtractTextPluginConfig = new ExtractTextPlugin("dist/styles.css");
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    title: 'Jamie Allen',
-    hash: true,
-    template: path.join(__dirname + '/public/index.html'),
-    filename: 'index.html',
-    inject: 'body'
-})
-const CopyWebpackPluginConfig = new CopyWebpackPlugin([{
-    from: './public/images/me.jpg',
-    to: './dist/images'
-}], {
-    copyUnmodified: true
-});
-// const ProdEnvPluginConfig = new webpack.DefinePlugin({
-//     'process.env.NODE_ENV': JSON.stringify('production')
-// })
-const ProdMinifyConfig = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: false
-    }
-})
 
 const config = {
     entry: [
@@ -39,7 +16,7 @@ const config = {
     },
     devServer: {
         // This is required for webpack-dev-server. The path should
-        // be an absolute path to your build destination.
+        // be an absolute path to the build destination.
         outputPath: path.join(__dirname + '/'),
         stats: {
             chunks: false
@@ -65,14 +42,18 @@ const config = {
         }] // inline base64 URLs for <=8k images, direct URLs for the rest
     },
     plugins: [
-        ExtractTextPluginConfig,
+        new ExtractTextPlugin("dist/styles.css"),
         HtmlWebpackPluginConfig,
         CopyWebpackPluginConfig
     ]
 }
 
 if (isProduction) {
-  config.plugins.push(ProdMinifyConfig)
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false }
+        })
+    )
 }
 
 module.exports = config;
