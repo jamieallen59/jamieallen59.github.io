@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import ReactDOM, { render } from 'react-dom'
+import React, { Component } from 'react';
+import ReactDOM, { render } from 'react-dom';
 
-import data from './data.json'
-import scrollAnimation from './components/animations/scrollHandler.js'
-import labelAnimation from './components/animations/label.js';
+import data from './data.json';
+import scrollAnimation from './components/animations/scrollHandler';
+import labelAnimation from './components/animations/label';
+// import LabelsContainer from './containers/LabelsContainer';
 import Label from './components/Label.js';
-import Project from './components/Project.js';
+import Project from './components/Project';
 
 require('../less/index.less');
 
@@ -29,39 +30,52 @@ class PortfolioContainer extends Component {
         labelAnimation();
     }
 
+    _renderLabels() {
+        return this.props.projectData.map((result, index) => {
+            const activeClass = this.state.selected === index ? 'label__link active' : 'label__link';
+
+            return (
+                <Label
+                    key={ index }
+                    activeClass={ activeClass }
+                    onSelectLabel={ this.handleClick.bind(this, index) }
+                    workTitle={ this.props.projectData[index].label } />
+            )
+        })
+    }
+
+    _renderProjects() {
+        return this.props.projectData.map((result, index) => {
+            return (
+                <Project
+                    key={ index }
+                    selected={ this.state.selected }
+                    index={ index }
+                    projectData={ result } />
+            )
+        })
+    }
+
     render() {
         return (
             <div>
                 <div className='tabs__labels'>
-                    { this.props.projectData.map((result, index) => {
-                        const activeClass = (this.state.selected === index
-                            ? 'label__link active'
-                            : 'label__link');
-
-                        return (
-                            <Label
-                                key={ index }
-                                activeClass={ activeClass }
-                                onSelectLabel={ this.handleClick.bind(this, index) }
-                                workTitle={ this.props.projectData[index].label } />
-                        )
-                    })}
+                    { this._renderLabels() }
                 </div>
                 <div>
-                    { this.props.projectData.map((result, index) => {
-                        return (
-                            <Project
-                                key={ index }
-                                selected={ this.state.selected }
-                                index={ index }
-                                projectData={ result } />
-                        )
-                    }) }
+                    { this._renderProjects() }
                 </div>
             </div>
         );
     }
 }
+//
+// <LabelsContainer
+//     onSelectLabel={ this.handleClick.bind(this, index) }
+//     projectData={ this.props.projectData }
+//     selected={ this.state.selected }/>
+//
+
 
 PortfolioContainer.defaultProps = {
     selected: 0,

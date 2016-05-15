@@ -4,10 +4,11 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 import HtmlWebpackPluginConfig from './utils/HtmlWebpackPlugin';
 import CopyWebpackPluginConfig from './utils/CopyWebpackPlugin';
 
-const isProduction = process.env.NODE_ENV === 'production';
+const env = process.env.NODE_ENV;
 
 const config = {
     entry: [
+        'webpack/hot/dev-server',
         './public/js/app.js'
     ],
     output: {
@@ -43,12 +44,15 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin("dist/styles.css"),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify(env)
+        })
         HtmlWebpackPluginConfig,
         CopyWebpackPluginConfig
     ]
 }
 
-if (isProduction) {
+if (env === 'production') {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false }

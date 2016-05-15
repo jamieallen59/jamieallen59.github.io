@@ -1,3 +1,4 @@
 - images all being produced twice
 - Introduce CSS modules
-- move webpack plugins to a different file
+- Use Redux to handle state. This will allow me to use a LabelContainer and ProjectContainer and hold the state in one place (e.g. the 'index' of the clicked tab, which I can then propogate to the project)
+-
