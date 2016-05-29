@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-const Project = (props) => {
-	const { imageClass, url, title, description, imageName } = props.projectData
-	const showWork = props.index !== props.selected ? 'dont-display' : ''
+const Project = ({ index, selected, projectData }) => {
+	const { imageClass, url, title, description, imageName } = projectData
+	const showWork = index !== selected ? 'dont-display' : ''
 	const projectImage = document.createElement('img')
 
 	projectImage.src = require(`../../images/${imageName}`) // eslint-disable-line global-require
@@ -11,7 +11,9 @@ const Project = (props) => {
 		<div className={ showWork } className={`tabs__content ${showWork}`}>
 			<div className='work__container'>
 				<div>
-					<img className={ `work__image ${imageClass}` } src={ projectImage.src } role='presentation' />
+					<img className={ `work__image ${imageClass}` }
+						src={ projectImage.src }
+						role='presentation' />
 				</div>
 				<div className='work-summary'>
 					<a href={ `https:// ${url}` } className='work-url'>{ url }</a>

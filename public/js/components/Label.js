@@ -1,20 +1,18 @@
 import React, { PropTypes } from 'react'
 
-const Label = (props) => {
+const Label = ({ activeClass, onClick, workTitle }) => {
 	return (
 		<div className='label'>
-			<a href='#'
-				className={ props.activeClass }
-				onClick={ props.onSelectLabel }>
-				{ props.workTitle }
+			<a className={ activeClass } onClick={ onClick }>
+				{ workTitle }
 			</a>
 		</div>
 	)
 }
 
 Label.propTypes = {
+	onClick: PropTypes.func.isRequired,
 	activeClass: PropTypes.string.isRequired,
-	onSelectLabel: PropTypes.func.isRequired,
 	workTitle: PropTypes.string.isRequired
 }
 
