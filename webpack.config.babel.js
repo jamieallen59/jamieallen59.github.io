@@ -13,7 +13,7 @@ const config = {
     ],
     output: {
         path: './',
-        filename: 'index_bundle.js'
+        filename: '/index_bundle.js'
     },
     devServer: {
         // This is required for webpack-dev-server. The path should
