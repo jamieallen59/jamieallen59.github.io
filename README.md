@@ -3,8 +3,9 @@ Personal website
 
 Built using:
   - React
-  - JavaScript es6
-  - Gulp
+  - Redux
+  - JavaScript
+  - webpack
   - LESS
 
-Link to website: http://jamieallen59.github.io
+Link to website: http://www.jamieallen.co.uk/
