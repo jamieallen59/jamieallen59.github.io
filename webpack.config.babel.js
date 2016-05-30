@@ -15,6 +15,8 @@ const config = {
         filename: 'index_bundle.js'
     },
     devServer: {
+		hot: true,
+		inline: true,
         // This is required for webpack-dev-server. The path should
         // be an absolute path to the build destination.
         outputPath: path.join(__dirname + '/'),
@@ -51,7 +53,6 @@ const config = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(env)
         }),
-		new webpack.HotModuleReplacementPlugin(),
         HtmlWebpackPluginConfig,
         CopyWebpackPluginConfig
     ]
@@ -62,6 +63,12 @@ if (env === 'production') {
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false }
         })
+    )
+}
+
+if (env !== 'production') {
+    config.plugins.push(
+		new webpack.HotModuleReplacementPlugin()
     )
 }
 
