@@ -8,7 +8,8 @@ const env = process.env.NODE_ENV;
 
 const config = {
     entry: [
-        'webpack/hot/dev-server',
+		'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
         './public/js/app.js'
     ],
     output: {
@@ -16,6 +17,7 @@ const config = {
         filename: 'index_bundle.js'
     },
     devServer: {
+		hot: true,
         // This is required for webpack-dev-server. The path should
         // be an absolute path to the build destination.
         outputPath: path.join(__dirname + '/'),
@@ -33,7 +35,7 @@ const config = {
         loaders: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            loaders: ['babel-loader']
+            loaders: ['react-hot', 'babel-loader']
         }, {
             test: /\.(css|less)$/,
             exclude: [ /public(\\|\/)js/ ],
