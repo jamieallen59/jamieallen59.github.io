@@ -1,29 +1,23 @@
 import React from 'react'
 import { render } from 'react-dom'
-
 import './components/animations/scrollHandler'
 import PortfolioContainer from './containers/PortfolioContainer'
-import showProject from './reducers/showProject'
-import { createStore } from 'redux'
 import { connect } from 'react-redux'
+import configureStore from './configureStore'
 
 require('../less/index.less')
 
-const store = createStore(showProject)
+const store = configureStore()
 
-const mapStateToProps = (state) => {
-	return {
-		selected: state.selected
-	}
-}
+const mapStateToProps = (state) => ({
+	selected: state.selected
+})
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		onTabSelect: (selected) => {
-			dispatch({ type: 'SELECT_TAB', selected })
-		}
+const mapDispatchToProps = (dispatch) => ({
+	onTabSelect(selected) {
+		dispatch({ type: 'SELECT_TAB', selected })
 	}
-}
+})
 
 const App = connect(mapStateToProps, mapDispatchToProps)(PortfolioContainer)
 

@@ -13,6 +13,7 @@
     "jsx-quotes": ["error", "prefer-single"],
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-indent-props": [ 2, "tab" ],
-    "react/jsx-first-prop-new-line": 0
+    "react/jsx-first-prop-new-line": 0,
+    "new-cap": 0
     }
 }

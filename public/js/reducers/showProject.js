@@ -1,4 +1,4 @@
-const showProject = (state = { selected: 0 }, action) => {
+const showProject = (state = {}, action) => {
 	switch (action.type) {
 		case 'SELECT_TAB':
 			return {

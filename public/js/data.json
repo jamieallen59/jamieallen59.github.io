@@ -2,7 +2,6 @@ module.exports = {
     "work": [
         {
             "label": "JustGiving Feed",
-            "imageClass": "jg-homefeed-image",
             "imageName": "jghomefeed.jpg",
             "url": "www.justgiving.com",
             "title": "Justgiving's social feed",
@@ -10,7 +9,6 @@ module.exports = {
         },
         {
             "label": "JustGiving Home Page",
-            "imageClass": "logged-out-home-image",
             "imageName": "loggedouthome.jpg",
             "url": "www.justgiving.com",
             "title": "Justgiving's landing page",
@@ -18,7 +16,6 @@ module.exports = {
         },
         {
             "label": "Kaleidoscope Comms",
-            "imageClass": "kalcoms-image",
             "imageName": "kalcomms.jpg",
             "url": "kaleidoscopecommunications.com",
             "title": "A communications consultancy",
@@ -26,7 +23,6 @@ module.exports = {
         },
         {
             "label": "Heaven Sent Cards",
-            "imageClass": "hsc-image",
             "imageName": "hscgallery.jpg",
             "url": "heavensentcards.com",
             "title": "An e-commerce postcard website",

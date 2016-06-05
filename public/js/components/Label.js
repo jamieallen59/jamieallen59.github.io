@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react'
+import CSSModules from 'react-css-modules'
 
-const Label = ({ activeClass, onClick, workTitle }) => {
+import styles from './Label.less'
+
+const Label = (props) => {
 	return (
-		<div className='label'>
-			<a className={ activeClass } onClick={ onClick }>
-				{ workTitle }
+		<div styleName='label show-label' className={ props.activeClass }>
+			<a styleName='label__link' onClick={ props.onClick }>
+				{ props.workTitle }
 			</a>
 		</div>
 	)
@@ -16,4 +19,4 @@ Label.propTypes = {
 	workTitle: PropTypes.string.isRequired
 }
 
-export default Label
+export default CSSModules(Label, styles, { allowMultiple: true })

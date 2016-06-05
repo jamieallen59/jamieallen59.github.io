@@ -1,9 +1,12 @@
 import React, { Component, PropTypes } from 'react'
+import CSSModules from 'react-css-modules'
 
 import Label from '../components/Label.js'
 import Project from '../components/Project'
 import data from '../data.json'
 import labelAnimation from '../components/animations/label'
+
+import styles from './PortfolioContainer.less'
 
 class PortfolioContainer extends Component {
 	componentDidMount() {
@@ -18,7 +21,7 @@ class PortfolioContainer extends Component {
 			return (
 				<Label
 					key={ index }
-					activeClass={`label__link ${activeClass}`}
+					activeClass={activeClass}
 					onClick={ () => this.props.onTabSelect(index) }
 					workTitle={ this.props.projectData[index].label } />
 			)
@@ -40,7 +43,7 @@ class PortfolioContainer extends Component {
 	render() {
 		return (
 			<div>
-				<div className='tabs__labels'>
+				<div styleName='tabs__labels'>
 					{ this.renderLabels() }
 				</div>
 				<div>
@@ -62,4 +65,4 @@ PortfolioContainer.propTypes = {
 	projectData: PropTypes.array.isRequired
 }
 
-module.exports = PortfolioContainer
+export default CSSModules(PortfolioContainer, styles, { allowMultiple: true })
