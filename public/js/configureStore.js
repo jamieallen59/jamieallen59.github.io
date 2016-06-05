@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 
 const configureStore = () => {
 	const persistedState = {
-		selected: 1
+		selected: 0
 	}
 
 	const store = createStore(showProject, persistedState)

@@ -8,7 +8,7 @@ const Project = ({ index, selected, projectData }) => {
 	const showWork = index !== selected ? 'dont-display' : ''
 	const projectImage = document.createElement('img')
 
-	projectImage.src = require(`../../images/${imageName}`) // eslint-disable-line global-require
+	projectImage.src = require(`../../../images/${imageName}`) // eslint-disable-line global-require
 
 	return (
 		<div className={ showWork } styleName={`tabs__content ${showWork}`}>

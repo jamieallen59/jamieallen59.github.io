@@ -1,4 +1,4 @@
-import animateIcons from './icons.js'
+import animateIcons from './iconAnimation.js'
 
 let lastScrollPosition = 0
 let ticking = false

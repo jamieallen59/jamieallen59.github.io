@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import './components/animations/scrollHandler'
-import PortfolioContainer from './containers/PortfolioContainer'
 import { connect } from 'react-redux'
+import PortfolioContainer from './containers/PortfolioContainer'
 import configureStore from './configureStore'
+import './utils/scrollHandler'
 
 require('../less/index.less')
 

@@ -1,5 +1,5 @@
 // Animation for the labels on load.
-import styles from '../Label.less'
+import styles from './Label.less'
 
 export default () => {
 	const labelsCollection = document.getElementsByClassName(styles.label)

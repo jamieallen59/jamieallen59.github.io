@@ -1,2 +1,2 @@
-- Introduce CSS modules
+- put data.json in redux store
 - introduce static proptypes

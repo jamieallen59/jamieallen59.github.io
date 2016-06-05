@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
-
-import Label from '../components/Label.js'
-import Project from '../components/Project'
+import Label from '../components/Labels/Label'
+import Project from '../components/Projects/Project'
+import labelAnimation from '../components/Labels/labelAnimation'
 import data from '../data.json'
-import labelAnimation from '../components/animations/label'
 
 import styles from './PortfolioContainer.less'
 
