@@ -13,40 +13,42 @@ class PortfolioContainer extends Component {
 	}
 
 	renderLabels() {
-		return this.props.projectData.map((result, index) => {
-			const isSelected = this.props.selected
-			const activeClass = isSelected === index ? 'active' : ''
+		const { projectData, selected } = this.props
+
+		return projectData.map((result, index) => {
+			const isSelected = selected === index
+			const activeClass = isSelected ? 'active' : ''
 
 			return (
 				<Label
-					key={ index }
+					key={index}
 					activeClass={activeClass}
-					onClick={ () => this.props.onTabSelect(index) }
-					workTitle={ this.props.projectData[index].label } />
+					onClick={() => this.props.onTabSelect(index)}
+					workTitle={this.props.projectData[index].label} />
 			)
 		})
 	}
 
 	renderProjects() {
-		return this.props.projectData.map((result, index) => {
-			return (
-				<Project
-					key={ index }
-					selected={ this.props.selected }
-					index={ index }
-					projectData={ result } />
-			)
-		})
+		const { projectData } = this.props
+
+		return projectData.map((result, index) => (
+			<Project
+				key={index}
+				selected={this.props.selected}
+				index={index}
+				projectData={result} />
+		))
 	}
 
 	render() {
 		return (
 			<div>
 				<div styleName='tabs__labels'>
-					{ this.renderLabels() }
+					{this.renderLabels()}
 				</div>
 				<div>
-					{ this.renderProjects() }
+					{this.renderProjects()}
 				</div>
 			</div>
 		)

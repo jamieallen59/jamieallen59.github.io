@@ -3,11 +3,11 @@ import CSSModules from 'react-css-modules'
 
 import styles from './Label.less'
 
-const Label = (props) => (
+const Label = ({ activeClass, onClick, workTitle }) => (
 	<div styleName='label show-label'>
-		<a styleName={`label__link ${props.activeClass}`}
-			onClick={ props.onClick }>
-			{ props.workTitle }
+		<a styleName={`label__link ${activeClass}`}
+			onClick={onClick}>
+			{workTitle}
 		</a>
 	</div>
 )
