@@ -1,9 +1,20 @@
 .gallery {
 	display: initial;
+	cursor: pointer;
+	background-color: grey;
 }
 
-.work__image {
+.gallery--singleImage {
+	cursor: default;
+}
+
+.gallery__image {
 	width: 100%;
 	background-repeat: no-repeat;
 	background-size: 100%;
+}
+
+.gallery__image--hidden {
+	opacity: 0;
+	display: none;
 }

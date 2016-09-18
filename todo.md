@@ -1,2 +1,3 @@
 - put data.json in redux store
 - introduce static proptypes
+- Allow sliding Gallery of images per project

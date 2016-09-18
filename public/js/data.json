@@ -9,7 +9,12 @@ module.exports = {
         },
         {
             "label": "JustGiving Home Page",
-            "imageNames": [ "loggedouthome_1.jpg" ],
+            "imageNames": [
+				"loggedouthome_1.jpg",
+				"loggedouthome_2.jpg",
+				"loggedouthome_3.jpg",
+				"loggedouthome_4.jpg"
+			],
             "url": "www.justgiving.com",
             "title": "Justgiving's landing page",
             "description": "Again working as the only front end developer I built JustGiving's homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focus on fast testing cycles and continuous integration."
