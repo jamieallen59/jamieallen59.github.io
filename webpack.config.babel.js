@@ -8,7 +8,7 @@ const env = process.env.NODE_ENV;
 
 const config = {
     entry: [
-        './public/js/app.js'
+        './src/js/app.js'
     ],
     output: {
         path: './',
@@ -37,11 +37,11 @@ const config = {
             loaders: ['react-hot', 'babel-loader']
         }, {
             test: /\.(css|less)$/,
-            exclude: [ /public(\\|\/)js/ ],
+            exclude: [ /src(\\|\/)js/ ],
             loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!less?sourceMap")
         }, {
             test: /\.(css|less)$/,
-            include: [ /public(\\|\/)js/ ],
+            include: [ /src(\\|\/)js/ ],
             loader: ExtractTextPlugin.extract('style-loader', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less?outputStyle=expanded&sourceMap')
         }, {
             test: /\.(png|jpg)$/,

@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     title: 'Jamie Allen',
     hash: true,
-    template: './public/index.html',
+    template: './src/index.html',
     filename: 'index.html',
     inject: 'body'
 })
