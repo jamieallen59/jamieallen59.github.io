@@ -9,11 +9,11 @@ require('../less/index.less')
 
 const store = configureStore()
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	selected: state.selected
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
 	onTabSelect(selected) {
 		dispatch({ type: 'SELECT_TAB', selected })
 	}

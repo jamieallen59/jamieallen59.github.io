@@ -6,6 +6,10 @@ import styles from './Gallery.less'
 export const className = 'gallery'
 
 class Gallery extends Component {
+	static propTypes = {
+		images: PropTypes.arrayOf(PropTypes.string)
+	}
+
 	constructor(props) {
 		super(props)
 
@@ -16,7 +20,7 @@ class Gallery extends Component {
 		const { images = [] } = this.props
 		const { activeImageIndex } = this.state
 		const imageCount = images.length
-
+		// Deciding whether to advance the image or not
 		let newImageIndex = activeImageIndex + 1
 		newImageIndex = newImageIndex === imageCount ? 0 : newImageIndex
 
@@ -35,23 +39,20 @@ class Gallery extends Component {
 				{images.map((imageUrl, i) => {
 					const projectImage = document.createElement('img')
 					projectImage.src = require(`../../../images/${imageUrl}`) // eslint-disable-line
+					const shouldDIsplayImage = activeImageIndex === i
 
 					return (
 						<GalleryImage
 							key={`${imageUrl}-${i}`}
 							imageUrl={projectImage.src}
 							onClick={advanceImageIndex}
-							display={activeImageIndex === i}
+							display={shouldDIsplayImage}
 						/>
 					)
 				})}
 			</div>
 		)
 	}
-}
-
-Gallery.propTypes = {
-	images: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default CSSModules(Gallery, styles, { allowMultiple: true })

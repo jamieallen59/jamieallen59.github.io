@@ -8,6 +8,17 @@ import data from '../data.json'
 import styles from './PortfolioContainer.less'
 
 class PortfolioContainer extends Component {
+	static defaultProps = {
+		projectData: data.work,
+		isLoading: true
+	}
+
+	static propTypes = {
+		onTabSelect: PropTypes.func.isRequired,
+		selected: PropTypes.number.isRequired,
+		projectData: PropTypes.array.isRequired
+	}
+
 	componentDidMount() {
 		labelAnimation()
 	}
@@ -53,17 +64,6 @@ class PortfolioContainer extends Component {
 			</div>
 		)
 	}
-}
-
-PortfolioContainer.defaultProps = {
-	projectData: data.work,
-	isLoading: true
-}
-
-PortfolioContainer.propTypes = {
-	onTabSelect: PropTypes.func.isRequired,
-	selected: PropTypes.number.isRequired,
-	projectData: PropTypes.array.isRequired
 }
 
 export default CSSModules(PortfolioContainer, styles, { allowMultiple: true })

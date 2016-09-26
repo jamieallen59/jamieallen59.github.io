@@ -1,4 +1,4 @@
-const showProject = (state = {}, action) => {
+export default (state = {}, action) => {
 	switch (action.type) {
 		case 'SELECT_TAB':
 			return {
@@ -9,5 +9,3 @@ const showProject = (state = {}, action) => {
 			return state
 	}
 }
-
-module.exports = showProject
