@@ -1,10 +1,8 @@
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
-const CopyWebpackPluginConfig = new CopyWebpackPlugin([{
+export default new CopyWebpackPlugin([{
     from: './src/images/me.jpg',
-    to: './dist/images'
+    to: './'
 }], {
     copyUnmodified: true
 })
-
-module.exports = CopyWebpackPluginConfig;

@@ -1,6 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from "extract-text-webpack-plugin";
+
+// use an index.js for these!
 import HtmlWebpackPluginConfig from './utils/HtmlWebpackPlugin';
 import CopyWebpackPluginConfig from './utils/CopyWebpackPlugin';
 
@@ -49,7 +51,7 @@ const config = {
         }] // inline base64 URLs for <=8k images, direct URLs for the rest
     },
     plugins: [
-        new ExtractTextPlugin("dist/styles.css"),
+        new ExtractTextPlugin("styles.css"),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(env)
         }),
@@ -72,4 +74,5 @@ if (env !== 'production') {
     )
 }
 
+// use export default
 module.exports = config;
