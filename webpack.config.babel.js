@@ -13,7 +13,7 @@ const config = {
         './src/js/app.js'
     ],
     output: {
-        path: './',
+        path: './dist',
         filename: 'index_bundle.js'
     },
     devServer: {
