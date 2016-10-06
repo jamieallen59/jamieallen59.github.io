@@ -5,7 +5,6 @@ const configureStore = () => {
 	const persistedState = {
 		selected: 0
 	}
-
 	const store = createStore(showProject, persistedState)
 
 	return store
