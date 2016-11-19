@@ -49,7 +49,7 @@ const config = {
 				'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less?outputStyle=expanded&sourceMap')
 		}, {
 			test: /\.(png|jpg)$/,
-			loaders: [ 'file-loader?name=assets/[hash].[ext]' ]
+			loaders: [ 'url-loader?limit=8192&name=assets/[hash].[ext]' ]
 		} ] // inline base64 URLs for <=8k images, direct URLs for the rest
 	},
 	plugins: [
