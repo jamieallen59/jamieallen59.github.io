@@ -14,7 +14,7 @@ const config = {
 	],
 	output: {
 		path: './',
-		filename: 'index_bundle.js'
+		filename: './dist/index_bundle.js'
 	},
 	devServer: {
 		hot: true,
@@ -49,11 +49,11 @@ const config = {
 				'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less?outputStyle=expanded&sourceMap')
 		}, {
 			test: /\.(png|jpg)$/,
-			loaders: [ 'url-loader?limit=8192&name=assets/[hash].[ext]' ]
+			loaders: [ 'url-loader?limit=8192&name=dist/assets/[hash].[ext]' ]
 		} ] // inline base64 URLs for <=8k images, direct URLs for the rest
 	},
 	plugins: [
-		new ExtractTextPlugin('styles.css'),
+		new ExtractTextPlugin('./dist/[name].css'),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(env)
 		}),
