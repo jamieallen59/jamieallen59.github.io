@@ -22,23 +22,35 @@ module.exports = {
             "description": "Again working as the only front end developer I built JustGiving's homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focus on fast testing cycles and continuous integration."
         },
         {
-            "label": "Kaleidoscope Comms",
+            "label": "Kaleidoscope Communications",
             "imageNames": [
 				"kalcomms_1.jpg",
 				"kalcomms_2.jpg",
 				"kalcomms_3.jpg",
 				"kalcomms_4.jpg"
 			],
-            "url": "kaleidoscopecommunications.com",
+            "url": "www.kaleidoscopecommunications.com",
             "title": "A communications consultancy",
             "description": "I implemented the design and build of Kaleidoscope Communications. The aim was to describe the company, provide information and testimonials relating to their work, and direct users to get in touch."
         },
         {
             "label": "Heaven Sent Cards",
             "imageNames": [ "hscgallery.jpg" ],
-            "url": "heavensentcards.com",
+            "url": "www.heavensentcards.com",
             "title": "An e-commerce postcard website",
             "description": "I was responsible for the management and build of the website along with two other developers and a designer. The website has a gallery to display postcards and also an option to buy them via Paypal."
+        },
+        {
+            "label": "OfficeServe",
+            "imageNames": [
+				"officeserve_1.jpg",
+				"officeserve_2.jpg",
+				"officeserve_3.jpg",
+				"officeserve_4.jpg"
+			],
+            "url": "www.officeserve.com",
+            "title": "An online food ordering company",
+            "description": "Myself and one other frontend developer built OfficeServe’s e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and webpack."
         }
     ]
 }
