@@ -2,7 +2,9 @@ module.exports = {
     "work": [
         {
             "label": "JustGiving Feed",
-            "imageNames": [ "jghomefeed.jpg" ],
+            "imageNames": [
+				"jghomefeed_1.jpg"
+			],
             "url": "www.justgiving.com",
             "title": "Justgiving's social feed",
             "description": "Working as the sole FE resource on the JG home feed I built many of the UI elements within it. I worked with 8-12 colleagues in a cross-functional team of designers, developers and analysts. The page receives around 1.6 million page views per month."
@@ -21,7 +23,12 @@ module.exports = {
         },
         {
             "label": "Kaleidoscope Comms",
-            "imageNames": [ "kalcomms.jpg" ],
+            "imageNames": [
+				"kalcomms_1.jpg",
+				"kalcomms_2.jpg",
+				"kalcomms_3.jpg",
+				"kalcomms_4.jpg"
+			],
             "url": "kaleidoscopecommunications.com",
             "title": "A communications consultancy",
             "description": "I implemented the design and build of Kaleidoscope Communications. The aim was to describe the company, provide information and testimonials relating to their work, and direct users to get in touch."
