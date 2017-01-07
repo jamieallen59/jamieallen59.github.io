@@ -51,6 +51,18 @@ module.exports = {
             "url": "www.officeserve.com",
             "title": "An online food ordering company",
             "description": "Myself and one other frontend developer built OfficeServe’s e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and webpack."
-        }
+        },
+		{
+			"label": "FIXR",
+			"imageNames": [
+				"fixr_1.jpg",
+				"fixr_2.jpg",
+				"fixr_3.jpg",
+				"fixr_4.jpg"
+			],
+			"url": "www.fixr-app.com",
+			"title": "An student ticketing company",
+			"description": "As the sole frontend developer at Fixr I own the full development process from code up to production. The isomorphic React application uses server side rendering to improve page load times and search indexing. It also uses Redux, Redux-form, SASS and Webpack."
+		}
     ]
 }
