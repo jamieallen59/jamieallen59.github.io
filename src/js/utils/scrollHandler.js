@@ -4,7 +4,7 @@ let lastScrollPosition = 0
 let ticking = false
 
 window.addEventListener('scroll', () => {
-	lastScrollPosition = window.scrollY
+	lastScrollPosition = window.pageYOffset
 
 	if (!ticking) {
 		window.requestAnimationFrame(() => {

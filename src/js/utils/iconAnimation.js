@@ -7,8 +7,13 @@ const staggeredAdding = (e, i) => {
 }
 
 export default () => {
-	const iconsCollection = document.getElementsByClassName('link')
-	const icons = [].slice.call(iconsCollection)
+	const shownIconsCollection = document.getElementsByClassName('show-link')
 
-	icons.map((result, index) => staggeredAdding(result, index))
+	if (shownIconsCollection.length < 1) {
+		const hiddenIconsCollection = document.getElementsByClassName('link')
+		const icons = [].slice.call(hiddenIconsCollection)
+
+		icons.map((result, index) => staggeredAdding(result, index))
+	}
+	return false
 }
