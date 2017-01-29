@@ -1,16 +1,16 @@
 module.exports = {
     "work": [
         {
-            "label": "JustGiving Feed",
+            "label": "JustGiving - feed",
             "imageNames": [
 				"jghomefeed_1.jpg"
 			],
             "url": "www.justgiving.com",
             "title": "Justgiving's social feed",
-            "description": "Working as the sole FE resource on the JG home feed I built many of the UI elements within it. I worked with 8-12 colleagues in a cross-functional team of designers, developers and analysts. The page receives around 1.6 million page views per month."
+            "description": "Working as the sole frontend resource on the JG home feed I built many of the UI elements within it. I worked with 8-12 colleagues in a cross-functional team of designers, developers and analysts. The page receives around 1.6 million page views per month."
         },
         {
-            "label": "JustGiving Home Page",
+            "label": "JustGiving - homepage",
             "imageNames": [
 				"loggedouthome_1.jpg",
 				"loggedouthome_2.jpg",
@@ -19,7 +19,7 @@ module.exports = {
 			],
             "url": "www.justgiving.com",
             "title": "Justgiving's landing page",
-            "description": "Again working as the only front end developer I built JustGiving's homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focus on fast testing cycles and continuous integration."
+            "description": "Again working as the only frontend developer I built JustGiving's homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focussed on quick iteration and continuous integration."
         },
         {
             "label": "Kaleidoscope Communications",
@@ -31,7 +31,7 @@ module.exports = {
 			],
             "url": "www.kaleidoscopecommunications.com",
             "title": "A communications consultancy",
-            "description": "I implemented the design and build of Kaleidoscope Communications. The aim was to describe the company, provide information and testimonials relating to their work, and direct users to get in touch."
+            "description": "I implemented the design and build of Kaleidoscope Communications company website. The aim was to describe the company, provide information, display testimonials relating to their work and ultimately direct users to get in touch."
         },
         {
             "label": "Heaven Sent Cards",
@@ -50,7 +50,7 @@ module.exports = {
 			],
             "url": "www.officeserve.com",
             "title": "An online food ordering company",
-            "description": "Myself and one other frontend developer built OfficeServe’s e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and webpack."
+            "description": "Myself and one other frontend developer built OfficeServe’s e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and Webpack."
         },
 		{
 			"label": "FIXR",
@@ -62,7 +62,7 @@ module.exports = {
 			],
 			"url": "www.fixr-app.com",
 			"title": "An student ticketing company",
-			"description": "As the sole frontend developer at Fixr I own the full development process from code up to production. The isomorphic React application uses server side rendering to improve page load times and search indexing. It also uses Redux, Redux-form, SASS and Webpack."
+			"description": "As the sole frontend developer at Fixr, I own the full development process from code up to production. The isomorphic React application uses server side rendering to improve page load times and search indexing. It also uses Redux, Redux-form, SASS and Webpack."
 		}
     ]
 }
