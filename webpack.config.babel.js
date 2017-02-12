@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import path from 'path'
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
@@ -7,6 +8,7 @@ import HtmlWebpackPluginConfig from './utils/HtmlWebpackPlugin'
 import CopyWebpackPluginConfig from './utils/CopyWebpackPlugin'
 
 const env = process.env.NODE_ENV
+const isProduction = env === 'production'
 
 const config = {
 	entry: [
@@ -21,35 +23,45 @@ const config = {
 		inline: true,
 		// This is required for webpack-dev-server. The path should
 		// be an absolute path to the build destination.
-		outputPath: path.join(`${__dirname}/`),
+		contentBase: path.join(`${__dirname}/`),
 		stats: {
 			chunks: false
 		}
 	},
 	devtool: 'source-map',
 	module: {
-		preLoaders: [ {
+		rules: [ {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loaders: [ 'eslint-loader' ]
-		} ],
-		loaders: [ {
+			enforce: 'pre',
+			use: [ 'eslint-loader' ]
+		}, {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loaders: [ 'react-hot', 'babel-loader' ]
+			use: [ 'react-hot-loader', 'babel-loader' ]
 		}, {
 			test: /\.(css|less)$/,
 			exclude: [ /src(\\|\/)js/ ],
-			loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!less?sourceMap')
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: [
+					'css-loader?sourceMap',
+					'less-loader?sourceMap'
+				]
+			})
 		}, {
 			test: /\.(css|less)$/,
 			include: [ /src(\\|\/)js/ ],
-			loader: ExtractTextPlugin.extract(
-				'style-loader',
-				'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less?outputStyle=expanded&sourceMap')
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: [
+					'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+					'less-loader?outputStyle=expanded&sourceMap'
+				]
+			})
 		}, {
 			test: /\.(png|jpg)$/,
-			loaders: [ 'url-loader?limit=8192&name=dist/assets/[hash].[ext]' ]
+			use: [ 'url-loader?limit=8192&name=dist/assets/[hash].[ext]' ]
 		} ] // inline base64 URLs for <=8k images, direct URLs for the rest
 	},
 	plugins: [
@@ -62,15 +74,15 @@ const config = {
 	]
 }
 
-if (env === 'production') {
+if (isProduction) {
 	config.plugins.push(
 		new webpack.optimize.UglifyJsPlugin({
-			compress: { warnings: false }
+			sourceMap: true
 		})
 	)
 }
 
-if (env !== 'production') {
+if (!isProduction) {
 	config.plugins.push(
 		new webpack.HotModuleReplacementPlugin()
 	)
