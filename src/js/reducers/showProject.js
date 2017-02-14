@@ -1,4 +1,6 @@
-export default (state = {}, action) => {
+import { createSelector } from 'reselect'
+
+const showProject = (state = {}, action) => {
 	switch (action.type) {
 		case 'SELECT_TAB':
 			return {
@@ -9,3 +11,12 @@ export default (state = {}, action) => {
 			return state
 	}
 }
+
+export default showProject
+
+const getSelected = state => state.selected
+
+export const getSelectedProject = createSelector(
+	getSelected,
+	selected => selected
+)

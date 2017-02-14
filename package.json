@@ -30,7 +30,8 @@
     "react-css-modules": "^4.1.0",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "reselect": "^2.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",
