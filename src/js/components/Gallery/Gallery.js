@@ -10,10 +10,8 @@ class Gallery extends Component {
 		images: PropTypes.arrayOf(PropTypes.string)
 	}
 
-	constructor(props) {
-		super(props)
-
-		this.state = { activeImageIndex: 0 }
+	state = {
+		activeImageIndex: 0
 	}
 
 	advanceImageIndex = () => {
@@ -30,26 +28,29 @@ class Gallery extends Component {
 	render() {
 		const { images = [] } = this.props
 		const { activeImageIndex } = this.state
+
 		const isMorethanOneImage = images.length > 1
 		const advanceImageIndex = isMorethanOneImage ? this.advanceImageIndex : null
 		const galleryClass = isMorethanOneImage ? className : `${className} ${className}--singleImage`
 
 		return (
 			<div styleName={galleryClass}>
-				{images.map((imageUrl, i) => {
-					const projectImage = document.createElement('img')
-					projectImage.src = require(`../../../images/${imageUrl}`) // eslint-disable-line
-					const shouldDIsplayImage = activeImageIndex === i
+				{
+					images.map((imageUrl, i) => {
+						const projectImage = document.createElement('img')
+						projectImage.src = require(`../../../images/${imageUrl}`) // eslint-disable-line
+						const shouldDIsplayImage = activeImageIndex === i
 
-					return (
-						<GalleryImage
-							key={`${imageUrl}-${i}`}
-							imageUrl={projectImage.src}
-							onClick={advanceImageIndex}
-							display={shouldDIsplayImage}
-						/>
-					)
-				})}
+						return (
+							<GalleryImage
+								key={`${imageUrl}-${i}`}
+								imageUrl={projectImage.src}
+								onClick={advanceImageIndex}
+								display={shouldDIsplayImage}
+							/>
+						)
+					})
+				}
 			</div>
 		)
 	}

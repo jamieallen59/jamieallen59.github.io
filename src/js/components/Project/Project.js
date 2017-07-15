@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 
-import Gallery from '../Gallery/Gallery'
+import Gallery from '../Gallery'
 
 import styles from './Project.less'
 

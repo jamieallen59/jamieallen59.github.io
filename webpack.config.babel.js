@@ -15,7 +15,7 @@ const config = {
 		'./src/js/app.js'
 	],
 	output: {
-		path: path.resolve(__dirname, "./"),
+		path: path.resolve(__dirname, './'),
 		filename: './dist/index_bundle.js'
 	},
 	devServer: {
@@ -70,7 +70,8 @@ const config = {
 			'process.env.NODE_ENV': JSON.stringify(env)
 		}),
 		HtmlWebpackPluginConfig,
-		CopyWebpackPluginConfig
+		CopyWebpackPluginConfig,
+		new webpack.optimize.ModuleConcatenationPlugin()
 	]
 }
 

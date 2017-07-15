@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 
-import Label from '../components/Labels/Label'
-import Project from '../components/Projects/Project'
-import labelAnimation from '../components/Labels/labelAnimation'
+import Label from '../components/Label'
+import Project from '../components/Project'
+import labelAnimation from '../components/Label/labelAnimation'
+
 import data from '../data.json'
 
 import styles from './PortfolioContainer.less'
@@ -24,43 +25,37 @@ class PortfolioContainer extends Component {
 		labelAnimation()
 	}
 
-	renderLabels() {
-		const { projectData, selected } = this.props
-
-		return projectData.map((result, index) => {
-			const isSelected = selected === index
-			const activeClass = isSelected ? 'active' : ''
-
-			return (
-				<Label
-					key={index}
-					activeClass={activeClass}
-					onClick={() => this.props.onTabSelect(index)}
-					workTitle={this.props.projectData[index].label} />
-			)
-		})
-	}
-
-	renderProjects() {
-		const { projectData } = this.props
-
-		return projectData.map((result, index) => (
-			<Project
-				key={index}
-				selected={this.props.selected}
-				index={index}
-				projectData={result} />
-		))
-	}
-
 	render() {
+		const { projectData, selected, onTabSelect } = this.props
+
 		return (
 			<div>
-				<div styleName='tabs__labels'>
-					{this.renderLabels()}
+				<div styleName='labelContainer'>
+					{
+						projectData.map((result, index) => {
+							const isSelected = selected === index
+							const activeClass = isSelected ? 'active' : ''
+
+							return (
+								<Label
+									key={index}
+									activeClass={activeClass}
+									onClick={() => onTabSelect(index)}
+									workTitle={projectData[index].label} />
+							)
+						})
+					}
 				</div>
 				<div>
-					{this.renderProjects()}
+					{
+						projectData.map((result, index) => (
+							<Project
+								key={`project_${index}`}
+								selected={selected}
+								index={index}
+								projectData={result} />
+						))
+					}
 				</div>
 			</div>
 		)
