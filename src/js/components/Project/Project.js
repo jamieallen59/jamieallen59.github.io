@@ -1,20 +1,30 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-
 import Gallery from '../Gallery'
-
 import styles from './Project.less'
 
 const Project = ({ index, selected, projectData }) => {
 	const { url, title, description, imageNames } = projectData
-	const showWork = index !== selected ? 'dont-display' : ''
+	const showWorkClassName = index !== selected ? 'dont-display' : ''
+
+	const urlElement = Array.isArray(url)
+		?	<div styleName='url-wrapper'>
+			<a href={ `https:// ${url[0].ios}` } styleName='work-url'>WonderBill - iOS</a>
+			<a href={ `https:// ${url[0].android}` } styleName='work-url'>WonderBill - Android</a>
+		</div>
+		: <a href={ `https:// ${url}` } styleName='work-url'>{ url }</a>
 
 	return (
-		<div className={ showWork } styleName={`tabs__content ${showWork}`}>
+		<div className={showWorkClassName} styleName={`tabs__content ${showWorkClassName}`}>
 			<div styleName='work__container'>
-				<Gallery images={imageNames} />
+				{
+					imageNames.length
+						? <Gallery images={imageNames} />
+						: <div>Images coming soon...</div>
+				}
 				<div styleName='work-summary'>
-					<a href={ `https:// ${url}` } styleName='work-url'>{ url }</a>
+					{urlElement}
 					<div styleName='work-title'>{ title }</div>
 					<div styleName='work-description'>{ description }</div>
 				</div>
@@ -28,7 +38,10 @@ Project.propTypes = {
 	selected: PropTypes.number.isRequired,
 	projectData: PropTypes.shape({
 		imageNames: PropTypes.array.isRequired,
-		url: PropTypes.string.isRequired,
+		url: PropTypes.oneOfType([
+			PropTypes.string.isRequired,
+			PropTypes.array.isRequired
+		]).isRequired,
 		title: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired
 	})

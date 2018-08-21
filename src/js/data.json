@@ -1,68 +1,94 @@
 {
-    "work": [
+  "work": [
+    {
+      "label": "JustGiving - feed",
+      "imageNames": [
+        "jghomefeed_1.jpg"
+      ],
+      "url": "www.justgiving.com",
+      "title": "Justgiving's social feed",
+      "description": "Working as the sole frontend resource on the JG home feed I built many of the UI elements within it. I worked with 8-12 colleagues in a cross-functional team of designers, developers and analysts. The page received around 1.6 million page views per month."
+    },
+    {
+      "label": "JustGiving - homepage",
+      "imageNames": [
+        "loggedouthome_1.jpg",
+        "loggedouthome_2.jpg",
+        "loggedouthome_3.jpg",
+        "loggedouthome_4.jpg"
+      ],
+      "url": "www.justgiving.com",
+      "title": "Justgiving's landing page",
+      "description": "At JG I built their homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focussed on quick iteration and continuous integration."
+    },
+    {
+      "label": "Kaleidoscope Communications",
+      "imageNames": [
+        "kalcomms_1.jpg",
+        "kalcomms_2.jpg",
+        "kalcomms_3.jpg",
+        "kalcomms_4.jpg"
+      ],
+      "url": "www.kaleidoscopecommunications.com",
+      "title": "A communications consultancy",
+      "description": "I implemented the design and build of Kaleidoscope Communications company website. The aim was to describe the company, provide information, display testimonials relating to their work and ultimately direct users to get in touch."
+    },
+    {
+      "label": "Heaven Sent Cards",
+      "imageNames": [ "hscgallery.jpg" ],
+      "url": "www.heavensentcards.com",
+      "title": "An e-commerce postcard website",
+      "description": "I was responsible for the management and build of the website along with two other developers and a designer. The website has a gallery to display postcards and also an option to buy them via Paypal."
+    },
+    {
+      "label": "OfficeServe",
+      "imageNames": [
+        "officeserve_1.jpg",
+        "officeserve_2.jpg",
+        "officeserve_3.jpg",
+        "officeserve_4.jpg"
+      ],
+      "url": "www.officeserve.com",
+      "title": "An online food ordering company",
+      "description": "At OfficeServe we built a new e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and Webpack."
+    },
+    {
+      "label": "FIXR",
+      "imageNames": [
+        "fixr_1.jpg",
+        "fixr_2.jpg",
+        "fixr_3.jpg",
+        "fixr_4.jpg"
+      ],
+      "url": "www.fixr-app.com",
+      "title": "A student ticketing company",
+      "description": "As the sole frontend developer at Fixr, I owned the full development process from code up to production. The isomorphic React application used SSR (server side rendering) to improve page load times and search indexing. It also used Redux, Redux-form, SASS and Webpack."
+    },
+    {
+      "label": "WonderBill - website",
+      "imageNames": [],
+      "url": "www.wonderbill.com",
+      "title": "An application to help manage your bills",
+      "description": "At Wonderbill we transferred a fragmented frontend system into a consistent, modern, React and Redux application."
+    },
+    {
+      "label": "WonderBill - V2 App",
+      "imageNames": [],
+      "url": [
         {
-            "label": "JustGiving - feed",
-            "imageNames": [
-				"jghomefeed_1.jpg"
-			],
-            "url": "www.justgiving.com",
-            "title": "Justgiving's social feed",
-            "description": "Working as the sole frontend resource on the JG home feed I built many of the UI elements within it. I worked with 8-12 colleagues in a cross-functional team of designers, developers and analysts. The page receives around 1.6 million page views per month."
-        },
-        {
-            "label": "JustGiving - homepage",
-            "imageNames": [
-				"loggedouthome_1.jpg",
-				"loggedouthome_2.jpg",
-				"loggedouthome_3.jpg",
-				"loggedouthome_4.jpg"
-			],
-            "url": "www.justgiving.com",
-            "title": "Justgiving's landing page",
-            "description": "Again working as the only frontend developer I built JustGiving's homepage, which receives over 30K unique visitors every day. Alongside C# developers, data scientists and designers we focussed on quick iteration and continuous integration."
-        },
-        {
-            "label": "Kaleidoscope Communications",
-            "imageNames": [
-				"kalcomms_1.jpg",
-				"kalcomms_2.jpg",
-				"kalcomms_3.jpg",
-				"kalcomms_4.jpg"
-			],
-            "url": "www.kaleidoscopecommunications.com",
-            "title": "A communications consultancy",
-            "description": "I implemented the design and build of Kaleidoscope Communications company website. The aim was to describe the company, provide information, display testimonials relating to their work and ultimately direct users to get in touch."
-        },
-        {
-            "label": "Heaven Sent Cards",
-            "imageNames": [ "hscgallery.jpg" ],
-            "url": "www.heavensentcards.com",
-            "title": "An e-commerce postcard website",
-            "description": "I was responsible for the management and build of the website along with two other developers and a designer. The website has a gallery to display postcards and also an option to buy them via Paypal."
-        },
-        {
-            "label": "OfficeServe",
-            "imageNames": [
-				"officeserve_1.jpg",
-				"officeserve_2.jpg",
-				"officeserve_3.jpg",
-				"officeserve_4.jpg"
-			],
-            "url": "www.officeserve.com",
-            "title": "An online food ordering company",
-            "description": "Myself and one other frontend developer built OfficeServe’s e-commerce platform from scratch. The site includes registration and login using Amazon’s Cognito SDK, a full checkout, a payment service and also product listings. We built the site using some of the latest tech: React, Redux, ES6 and Webpack."
-        },
-		{
-			"label": "FIXR",
-			"imageNames": [
-				"fixr_1.jpg",
-				"fixr_2.jpg",
-				"fixr_3.jpg",
-				"fixr_4.jpg"
-			],
-			"url": "www.fixr-app.com",
-			"title": "An student ticketing company",
-			"description": "As the sole frontend developer at Fixr, I own the full development process from code up to production. The isomorphic React application uses server side rendering to improve page load times and search indexing. It also uses Redux, Redux-form, SASS and Webpack."
-		}
-    ]
+          "ios": "https://itunes.apple.com/gb/app/wonderbill/id1217837332",
+          "android": "https://play.google.com/store/apps/details?id=com.wonderbill.WonderBillApp"
+        }
+      ],
+      "title": "A mobile application to help manage your bills",
+      "description": "We built the V2 WonderBill React Native application from scratch. We made it for both Android and iOS, and used GitLab Ci and Fastlane for deployment."
+    },
+    {
+      "label": "Applied Blockchain",
+      "imageNames": [],
+      "url": "https://appliedblockchain.com/",
+      "title": "A blockchain application production house.",
+      "description": "At AB I initally worked on a blockchain trading platform, then moved onto leading a supply chain project putting ship assets on the blockchain."
+    }
+  ]
 }

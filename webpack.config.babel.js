@@ -19,7 +19,6 @@ const config = {
 		filename: './dist/index_bundle.js'
 	},
 	devServer: {
-		hot: true,
 		inline: true,
 		// This is required for webpack-dev-server. The path should
 		// be an absolute path to the build destination.
@@ -38,7 +37,7 @@ const config = {
 		}, {
 			test: /\.js$/,
 			exclude: /node_modules/,
-			use: [ 'react-hot-loader', 'babel-loader' ]
+			use: [ 'babel-loader' ]
 		}, {
 			test: /\.(css|less)$/,
 			exclude: [ /src(\\|\/)js/ ],
@@ -83,11 +82,4 @@ if (isProduction) {
 	)
 }
 
-if (!isProduction) {
-	config.plugins.push(
-		new webpack.HotModuleReplacementPlugin()
-	)
-}
-
-// use export default
 module.exports = config

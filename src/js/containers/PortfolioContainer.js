@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 
 import Label from '../components/Label'
@@ -48,12 +49,12 @@ class PortfolioContainer extends Component {
 				</div>
 				<div>
 					{
-						projectData.map((result, index) => (
+						projectData.map((project, index) => (
 							<Project
 								key={`project_${index}`}
 								selected={selected}
 								index={index}
-								projectData={result} />
+								projectData={project} />
 						))
 					}
 				</div>
