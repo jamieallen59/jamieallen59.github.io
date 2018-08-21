@@ -1,8 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-
 import Gallery from '../Gallery'
-
 import styles from './Project.less'
 
 const Project = ({ index, selected, projectData }) => {
