@@ -48,12 +48,12 @@ class PortfolioContainer extends Component {
 				</div>
 				<div>
 					{
-						projectData.map((result, index) => (
+						projectData.map((project, index) => (
 							<Project
 								key={`project_${index}`}
 								selected={selected}
 								index={index}
-								projectData={result} />
+								projectData={project} />
 						))
 					}
 				</div>
