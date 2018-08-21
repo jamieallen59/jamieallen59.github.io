@@ -4,7 +4,7 @@
   "description": "Personal website =================",
   "main": "index.js",
   "scripts": {
-    "prod": "NODE_ENV=production node_modules/.bin/webpack -p",
+    "build-prod": "NODE_ENV=production node_modules/.bin/webpack -p",
     "start": "node_modules/.bin/webpack-dev-server --progress --colors"
   },
   "repository": {
