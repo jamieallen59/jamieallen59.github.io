@@ -16,7 +16,7 @@ const config = {
 	],
 	output: {
 		path: path.resolve(__dirname, './'),
-		filename: './dist/index_bundle.js'
+		filename: '[name].[contenthash].js'
 	},
 	devServer: {
 		inline: true,
