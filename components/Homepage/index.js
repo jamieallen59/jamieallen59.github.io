@@ -5,7 +5,7 @@ import styles from './index.styles.scss'
 const Helmet = () => {
   return (
     <Head>
-      <title>Gummi</title>
+      <title>J-Allen</title>
       <meta 
         name="viewport" 
         content="initial-scale=1.0, width=device-width"
