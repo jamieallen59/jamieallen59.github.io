@@ -1,0 +1,35 @@
+.container {
+  text-align: center;
+  margin: 40px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 420px) {
+    margin: 28px;
+    padding: 0;
+  }
+}
+
+.link {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin: 0 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  i {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 420px) {
+    margin: 0 10px;
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding: 40px;
+}

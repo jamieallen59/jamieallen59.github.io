@@ -6,10 +6,20 @@ body {
 }
 
 .wrapper {
+  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
+
+  font-size: 18px;
+  letter-spacing: .2px;
+  -webkit-font-smoothing: antialiased;
+  background-color: #171717;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .content {

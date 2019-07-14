@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import Footer from '../Footer'
+
 import styles from './index.styles.scss'
 
 const Helmet = () => {
@@ -28,6 +30,7 @@ const Homepage = () => {
         <div className={styles.content}>
           TEST
         </div>
+        <Footer />
       </div>
     </>
   )
