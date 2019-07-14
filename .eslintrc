@@ -15,5 +15,5 @@
     "react/jsx-indent-props": [ 2, "tab" ],
     "react/jsx-first-prop-new-line": 0,
     "new-cap": 0
-    }
+  }
 }

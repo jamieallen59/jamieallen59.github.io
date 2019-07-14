@@ -1,0 +1,33 @@
+{
+  "name": "jamieallen59.github.io",
+  "version": "1.0.0",
+  "description": "Personal site.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamieallen59/jamieallen59.github.io.git"
+  },
+  "keywords": [],
+  "author": "Jamie Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamieallen59/jamieallen59.github.io/issues"
+  },
+  "homepage": "https://github.com/jamieallen59/jamieallen59.github.io#readme",
+  "dependencies": {
+    "next": "^9.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-react": "^7.14.2"
+  }
+}
