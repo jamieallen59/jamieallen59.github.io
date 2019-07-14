@@ -1,0 +1,19 @@
+// @import '../../variables';
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
